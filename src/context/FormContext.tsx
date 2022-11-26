@@ -20,7 +20,7 @@ interface FormContextData {
   };
   handleNextStep: () => void;
   lastStep: number;
-  handleChange: (e: any) => void;
+  handleCreateToken: (key: string, value: string) => void;
 }
 
 interface FormContextProviderProps {
@@ -62,13 +62,10 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
     }
   }
 
-  function handleChange(e: any) {
-    const name = e.target.name;
-    const value = e.target.value;
-
+  function handleCreateToken(key: string, value: string) {
     setData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [key]: value,
     }));
   }
 
@@ -82,7 +79,7 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
         footerInstructions,
         handleNextStep,
         lastStep,
-        handleChange,
+        handleCreateToken,
       }}
     >
       {children}
