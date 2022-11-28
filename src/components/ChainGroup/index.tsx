@@ -1,4 +1,3 @@
-import { ImgHTMLAttributes } from "react";
 import Ethereum from "../../assets/Ethereum.svg";
 import Binance from "../../assets/Binance.svg";
 import Polygon from "../../assets/Polygon.svg";
@@ -9,10 +8,13 @@ import Network1 from "../../assets/7.svg";
 import Network2 from "../../assets/8.svg";
 import Network3 from "../../assets/9.svg";
 import { useFormContext } from "../../hooks/useFormContext";
+import { ChainGroupContainer } from "./styles";
+import { useState } from "react";
 
-interface ChainGroupProps extends ImgHTMLAttributes<HTMLImageElement> {}
+export function ChainGroup() {
+  const [checked, setChecked] = useState(false);
+  const [error, setError] = useState(false);
 
-export function ChainGroup({ ...rest }: ChainGroupProps) {
   const { data, setData } = useFormContext();
 
   const ChainGroupImages: Record<string, any> = {
@@ -29,37 +31,67 @@ export function ChainGroup({ ...rest }: ChainGroupProps) {
 
   const images = Object.entries(ChainGroupImages);
 
-  function toggleAddNetwork(key: string) {
+  function AddNetwork(key: string) {
+    //refactor
     const checkField = data.chains?.find((chain) => chain === key);
 
-    const newChain = data.chains?.filter((chain) => chain !== checkField);
-
     if (!checkField) {
-      setData((oldState) => ({
-        ...oldState,
-        chains: [...oldState.chains, key],
+      setError(false);
+      setChecked(true);
+      setData((prevState) => ({
+        ...prevState,
+        chains: [...prevState.chains, key],
       }));
     } else {
-      setData((oldState) => ({
-        ...oldState,
+      const newChain = data.chains?.filter((chain) => chain !== checkField);
+
+      if (newChain.length === 0) {
+        setChecked(false);
+      }
+      setData((prevState) => ({
+        ...prevState,
         chains: newChain,
       }));
     }
   }
 
+  function handleNextButtonClick() {
+    if (data.chains.length === 0) {
+      setError(true);
+    } else {
+      alert("navigate");
+    }
+  }
+
   return (
     <>
-      {images.map((image, index) => {
-        return (
-          <div key={index}>
-            <input
-              type="checkbox"
-              onChange={() => toggleAddNetwork(image[0])}
-            />
-            <img src={image[1].type} {...rest} />
-          </div>
-        );
-      })}
+      <ChainGroupContainer>
+        {images.map((image, index) => {
+          return (
+            <div className="ImageContainer" key={index}>
+              <input
+                id="myCheckbox"
+                type="checkbox"
+                onChange={() => AddNetwork(image[0])}
+              />
+              <label htmlFor="myCheckbox">
+                <img src={image[1].type} />
+              </label>
+            </div>
+          );
+        })}
+      </ChainGroupContainer>
+      {error && (
+        <p style={{ color: "red", fontSize: "0.65rem", margin: "1rem" }}>
+          You must select at least one network
+        </p>
+      )}
+
+      <div className="ButtonContainer">
+        <button type="button" onClick={handleNextButtonClick}>
+          Next {">"}
+        </button>
+      </div>
     </>
   );
 }
