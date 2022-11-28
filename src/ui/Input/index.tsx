@@ -1,8 +1,12 @@
 import { InputHTMLAttributes } from "react";
 import { Path, UseFormRegister } from "react-hook-form";
-import { IFormValues } from "../Form";
 
 import { InputContainer } from "./styles";
+
+export interface IFormValues {
+  tokenName: string;
+  tokenSymbol: string;
+}
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   hasLabel?: boolean;

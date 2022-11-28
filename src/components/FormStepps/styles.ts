@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const InputContainer = styled.div`
-  padding: 3.75rem 0 1.87rem 0;
+  padding: 0.8rem 0;
 
   span {
     display: flex;

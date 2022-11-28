@@ -12,6 +12,7 @@ export const FormContent = styled.div`
     justify-content: center;
     font-weight: 600;
     font-size: 2.5rem;
+    padding-bottom: 3.75rem;
   }
 
   .ButtonContainer {

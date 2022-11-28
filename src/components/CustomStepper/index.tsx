@@ -1,5 +1,5 @@
 import { Step, StepLabel, Stepper, StepperTypeMap } from "@mui/material";
-import { useFormContext } from "../../hooks/useFormContext";
+import { title } from "../Form/formBody";
 
 interface CustomStepperProps {
   currentStep: number;
@@ -7,8 +7,6 @@ interface CustomStepperProps {
 }
 
 export function CustomStepper({ currentStep, ...args }: CustomStepperProps) {
-  const { title } = useFormContext();
-
   const steps = Object.keys(title);
 
   return (

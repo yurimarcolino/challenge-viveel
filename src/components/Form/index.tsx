@@ -1,16 +1,11 @@
 import { useFormContext } from "../../hooks/useFormContext";
 import { CustomStepper } from "../CustomStepper";
 import { FormStepps } from "../FormStepps";
+import { footerInstructions, title } from "./formBody";
 import { FormContainer, FormContent } from "./styles";
 
-export interface IFormValues {
-  tokenName: string;
-  tokenSymbol: string;
-}
-
 export function Form() {
-  const { footerInstructions, currentStep, handleNextStep, title, lastStep } =
-    useFormContext();
+  const { currentStep } = useFormContext();
 
   return (
     <FormContainer>
@@ -18,6 +13,7 @@ export function Form() {
         currentStep={currentStep}
         style={{ width: "100%", padding: "5rem 0" }}
       />
+
       <FormContent>
         <header>
           <h2>{title[currentStep]}</h2>
