@@ -14,8 +14,8 @@ const schema = zod.object({
   tokenSymbol: zod.object({
     name: zod
       .string()
-      .min(4, { message: "Name must be at least 4 characters" })
-      .max(10, { message: "Name must be at most 10 characters" }),
+      .min(4, { message: "Token symbol required" })
+      .max(10, { message: "Token symbol must be at most 10 characters" }),
   }),
 });
 

@@ -1,30 +1,37 @@
 import { useFormContext } from "../../hooks/useFormContext";
 import { CustomStepper } from "../CustomStepper";
 import { FormStepps } from "../FormStepps";
+import { TokenResume } from "../FormStepps/TokenResume";
 import { footerInstructions, title } from "./formBody";
 import { FormContainer, FormContent } from "./styles";
 
 export function Form() {
-  const { currentStep } = useFormContext();
+  const { currentStep, hasFinished } = useFormContext();
 
   return (
-    <FormContainer>
-      <CustomStepper
-        currentStep={currentStep}
-        style={{ width: "100%", padding: "5rem 0" }}
-      />
+    <>
+      {hasFinished ? (
+        <TokenResume />
+      ) : (
+        <FormContainer>
+          <CustomStepper
+            currentStep={currentStep}
+            style={{ width: "100%", padding: "5rem 0" }}
+          />
 
-      <FormContent>
-        <header>
-          <h2>{title[currentStep]}</h2>
-        </header>
+          <FormContent>
+            <header>
+              <h2>{title[currentStep]}</h2>
+            </header>
 
-        <FormStepps />
+            <FormStepps />
 
-        <div className="FooterContainer">
-          <footer>{footerInstructions[currentStep]}</footer>
-        </div>
-      </FormContent>
-    </FormContainer>
+            <div className="FooterContainer">
+              <footer>{footerInstructions[currentStep]}</footer>
+            </div>
+          </FormContent>
+        </FormContainer>
+      )}
+    </>
   );
 }

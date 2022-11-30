@@ -12,9 +12,11 @@ export interface Data {
 }
 
 interface FormContextData {
-  currentStep: number;
   data: Data;
+  currentStep: number;
   lastStep: number;
+  hasFinished: boolean;
+  setHasFinished: React.Dispatch<React.SetStateAction<boolean>>;
   setData: React.Dispatch<React.SetStateAction<Data>>;
   handleNextStep: () => void;
   handleCreateToken: (key: string, value: string) => void;
@@ -28,6 +30,7 @@ export const FormContext = createContext({} as FormContextData);
 
 export function FormContextProvider({ children }: FormContextProviderProps) {
   const [currentStep, setCurrentStep] = useState(0);
+  const [hasFinished, setHasFinished] = useState(false);
 
   const [data, setData] = useState<Data>({
     tokenName: "",
@@ -41,7 +44,6 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
 
     chains: [],
   });
-  console.log({ data });
 
   const lastStep = Object.keys(title).length - 1;
 
@@ -61,11 +63,13 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
   return (
     <FormContext.Provider
       value={{
-        setData,
         data,
         currentStep,
-        handleNextStep,
+        hasFinished,
         lastStep,
+        setData,
+        setHasFinished,
+        handleNextStep,
         handleCreateToken,
       }}
     >

@@ -1,23 +1,24 @@
-import Ethereum from "../../assets/Ethereum.svg";
-import Binance from "../../assets/Binance.svg";
-import Polygon from "../../assets/Polygon.svg";
-import Cardano from "../../assets/Cardano.svg";
-import Avalanche from "../../assets/Avalanche.svg";
-import Tron from "../../assets/Tron.svg";
-import Network1 from "../../assets/7.svg";
-import Network2 from "../../assets/8.svg";
-import Network3 from "../../assets/9.svg";
-import { useFormContext } from "../../hooks/useFormContext";
+import Ethereum from "../../../assets/ethereum.svg";
+import Binance from "../../../assets/binance.svg";
+import Polygon from "../../../assets/polygon.svg";
+import Cardano from "../../../assets/cardano.svg";
+import Avalanche from "../../../assets/avalanche.svg";
+import Tron from "../../../assets/tron.svg";
+import Network1 from "../../../assets/network1.svg";
+import Network2 from "../../../assets/network2.svg";
+import Network3 from "../../../assets/network3.svg";
+
+import { useFormContext } from "../../../hooks/useFormContext";
 import { ChainGroupContainer } from "./styles";
 import { useState } from "react";
-
-export function ChainGroup() {
+//refactor
+export function SelectChain() {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
-  const { data, setData } = useFormContext();
+  const { data, setData, setHasFinished, hasFinished } = useFormContext();
 
-  const ChainGroupImages: Record<string, any> = {
+  const chainGroupImages: Record<string, any> = {
     ethereum: <Ethereum />,
     binance: <Binance />,
     polygon: <Polygon />,
@@ -29,10 +30,10 @@ export function ChainGroup() {
     network3: <Network3 />,
   };
 
-  const images = Object.entries(ChainGroupImages);
+  const images = Object.entries(chainGroupImages);
 
+  //refactor (too many responsabilities)
   function AddNetwork(key: string) {
-    //refactor
     const checkField = data.chains?.find((chain) => chain === key);
 
     if (!checkField) {
@@ -59,7 +60,7 @@ export function ChainGroup() {
     if (data.chains.length === 0) {
       setError(true);
     } else {
-      alert("navigate");
+      setHasFinished(true);
     }
   }
 
