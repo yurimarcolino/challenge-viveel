@@ -76,7 +76,13 @@ export function TokenResume() {
       </div>
 
       <div className="BuildButton">
-        <button onClick={() => alert("🎉🎉🎉🎉🎉")}>Build {">"}</button>
+        <button
+          onClick={() =>
+            alert("🎉🎉CONGRATS, THE TOKEN WAS BUILT successfully🎉🎉")
+          }
+        >
+          Build {">"}
+        </button>
       </div>
     </TokenResumeContainer>
   );
