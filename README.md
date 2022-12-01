@@ -24,41 +24,41 @@ npm install && npm start
 - Recharts
 - Zod
 
-## Assumptions
+### Assumptions
 
-### Form Steps
+## Form Steps
 
-## Token Name
+# Token Name
 
-<img src="./src/images/token-name.png" width=1280 height=1024/>
+<img src="./src/images/token-name.png" width=1920 height=1080/>
 
 This step is the entry point, and the user can create his token name.
 
-## Token Symbol
+# Token Symbol
 
-<img src="./src/images/token-symbol.png" width=1280 height=1024/>
+<img src="./src/images/token-symbol.png" width=1920 height=1080/>
 
 In this step, the user can create his token Symbol.
 
-## Token Distribution
+# Token Distribution
 
-<img src="./src/images/token-distribution.png" width=1280 height=1024/>
+<img src="./src/images/token-distribution.png" width=1920 height=1080/>
 
 In this step, the user can can set how he is going to share his assets between players.
 
-## Select Chain
+# Select Chain
 
-<img src="./src/images/select-chain.png" width=1280 height=1024/>
+<img src="./src/images/select-chain.png" width=1920 height=1080/>
 
 This step is the final step and the user can select which Blockchain he wants to use.
 
-## Token Resume
+# Token Resume
 
-<img src="./src/images/token-resume" width=1280 height=1024/>
+<img src="./src/images/token-resume" width=1920 height=1080/>
 
 This is the resume and the user can see the details that belong to the previous information added to the token
 
-### TODO
+## TODO
 
 [ x ] separate components (FormContainer)
 [ x ] create Form global state
