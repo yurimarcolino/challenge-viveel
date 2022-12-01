@@ -30,7 +30,10 @@ npm install && npm start
 
 # Token Name
 
-<img src="./src/images/token-name.png" width=1000 height=1000/>
+<img src="./src/images/token-name.png" width=1000 height=1000 background-size: cover;
+   background-repeat: no-repeat
+   background-position: center
+   />
 
 This step is the entry point, and the user can create his token name.
 
