@@ -9,7 +9,7 @@ export const TokenResumeContainer = styled.div`
   max-width: 43.75rem;
   max-height: 41.16rem;
 
-  margin: 0 auto;
+  margin: 14.187rem auto;
   padding: 0.62rem;
   gap: 0.6rem;
 
@@ -50,8 +50,10 @@ export const TokenResumeContainer = styled.div`
     justify-content: center;
     align-items: center;
 
+    min-height: 2.75rem;
+    max-height: 13.125rem;
     width: 20.31rem;
-    height: 2.75rem;
+
     background: rgba(255, 255, 255, 0.02);
     border-radius: 1.5rem;
     margin-left: 1.875rem;

@@ -26,6 +26,12 @@ export const InputContainer = styled.div`
     border: 1px solid ${(props) => props.theme.white};
   }
 
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   p {
     color: red;
     margin: 1rem;

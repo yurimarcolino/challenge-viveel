@@ -1,33 +1,20 @@
 import { useFormContext } from "../../../hooks/useFormContext";
-import { SvgIcon } from "../../SvgIcon";
+import { TwoSimplePieChart } from "../../PieChart";
 import { TokenResumeContainer } from "./styles";
-
-import Ethereum from "../../../assets/ethereum.svg";
-import Binance from "../../../assets/binance.svg";
-import Polygon from "../../../assets/polygon.svg";
-import Cardano from "../../../assets/cardano.svg";
-import Avalanche from "../../../assets/avalanche.svg";
-import Tron from "../../../assets/tron.svg";
-import Network1 from "../../../assets/network1.svg";
-import Network2 from "../../../assets/network2.svg";
-import Network3 from "../../../assets/network3.svg";
 
 export function TokenResume() {
   const { data } = useFormContext();
 
-  const chainGroupImages: Record<string, any> = {
-    ethereum: <Ethereum />,
-    binance: <Binance />,
-    polygon: <Polygon />,
-    avalanche: <Avalanche />,
-    cardano: <Cardano />,
-    tron: <Tron />,
-    network1: <Network1 />,
-    network2: <Network2 />,
-    network3: <Network3 />,
-  };
+  const total = data.tokenDistribution.reduce((acc, token) => {
+    return acc + token.amount;
+  }, 0);
 
-  const svg = Object.entries(chainGroupImages);
+  const tokenDistributionPercentage = data.tokenDistribution.map((token) => {
+    return {
+      name: token.name,
+      value: (token.amount / total) * 100,
+    };
+  });
 
   return (
     <TokenResumeContainer>
@@ -62,10 +49,12 @@ export function TokenResume() {
 
       <div className="BodyContainer">
         <div className="SpanContainer">
-          <p>Symbol:</p>
+          <p>Distribution:</p>
         </div>
         <div className="LabelContainer">
-          <label>distribution</label>
+          <div style={{ width: "400px", height: "400px" }}>
+            <TwoSimplePieChart data={tokenDistributionPercentage} />
+          </div>
         </div>
       </div>
 
@@ -76,13 +65,10 @@ export function TokenResume() {
         <div className="LabelContainer">
           <label>
             {data.chains.map((chain, index) => {
-              console.log(chain);
               return (
-                <SvgIcon
-                  key={index}
-                  iconName={chain}
-                  svgProp={{ width: 50, height: 50, fill: "#61dafb" }}
-                />
+                <div key={index}>
+                  <img style={{ width: "50px", height: "50px" }} src={chain} />
+                </div>
               );
             })}
           </label>

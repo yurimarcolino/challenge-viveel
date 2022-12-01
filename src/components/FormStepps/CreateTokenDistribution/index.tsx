@@ -57,7 +57,12 @@ export function CreateTokenDistribution({
 
             <InputContainer>
               <span>Amount</span>
-              <input {...register(`tokenDistribution.${index}.amount`, {})} />
+              <input
+                type="number"
+                {...register(`tokenDistribution.${index}.amount`, {
+                  valueAsNumber: true,
+                })}
+              />
               {errors.tokenDistribution?.[index]?.amount?.message && (
                 <p>{errors.tokenDistribution?.[index]?.amount?.message}</p>
               )}

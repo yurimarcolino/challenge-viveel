@@ -17,7 +17,6 @@ export function CreateTokenName({
   const { handleCreateToken, handleNextStep } = useFormContext();
 
   function handleCreateTokenName({ tokenName }: TokenNameFormShape) {
-    console.log(tokenName.name);
     handleCreateToken("tokenName", tokenName.name);
     handleNextStep();
   }

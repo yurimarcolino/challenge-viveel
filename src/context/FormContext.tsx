@@ -6,7 +6,7 @@ export interface Data {
   tokenSymbol: string;
   tokenDistribution: {
     name: string;
-    amount: string;
+    amount: number;
   }[];
   chains: string[];
 }
@@ -38,7 +38,7 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
     tokenDistribution: [
       {
         name: "",
-        amount: "",
+        amount: 0,
       },
     ],
 

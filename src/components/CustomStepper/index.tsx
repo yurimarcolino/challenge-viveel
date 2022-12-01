@@ -1,4 +1,4 @@
-import { Step, StepLabel, Stepper, StepperTypeMap } from "@mui/material";
+import { Step, StepLabel, Stepper } from "@mui/material";
 import { title } from "../Form/formBody";
 
 interface CustomStepperProps {

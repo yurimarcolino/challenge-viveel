@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
-  margin: 0 auto;
+  margin: 14.187rem auto;
   padding: 2rem;
   max-width: 42.5rem;
 `;
@@ -25,6 +25,7 @@ export const FormContent = styled.div`
       color: ${(props) => props.theme["gray-400"]};
       font-size: 1.5rem;
       margin-bottom: 4.375rem;
+      margin-top: 1rem;
 
       &:hover {
         opacity: 0.7;

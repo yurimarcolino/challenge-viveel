@@ -1,36 +1,27 @@
-import Ethereum from "../../../assets/ethereum.svg";
-import Binance from "../../../assets/binance.svg";
-import Polygon from "../../../assets/polygon.svg";
-import Cardano from "../../../assets/cardano.svg";
-import Avalanche from "../../../assets/avalanche.svg";
-import Tron from "../../../assets/tron.svg";
-import Network1 from "../../../assets/network1.svg";
-import Network2 from "../../../assets/network2.svg";
-import Network3 from "../../../assets/network3.svg";
-
 import { useFormContext } from "../../../hooks/useFormContext";
 import { ChainGroupContainer } from "./styles";
 import { useState } from "react";
 //refactor
+
+export const chainGroupImages: Record<string, any> = {
+  ethereum: "/src/assets/ethereum.svg",
+  binance: "/src/assets/binance.svg",
+  polygon: "/src/assets/polygon.svg",
+  avalanche: "/src/assets/avalanche.svg",
+  cardano: "/src/assets/cardano.svg",
+  tron: "/src/assets/tron.svg",
+  network1: "/src/assets/network1.svg",
+  network2: "/src/assets/network2.svg",
+  network3: "/src/assets/network3.svg",
+};
+
 export function SelectChain() {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
-  const { data, setData, setHasFinished, hasFinished } = useFormContext();
+  const { data, setData, setHasFinished } = useFormContext();
 
-  const chainGroupImages: Record<string, any> = {
-    ethereum: <Ethereum />,
-    binance: <Binance />,
-    polygon: <Polygon />,
-    avalanche: <Avalanche />,
-    cardano: <Cardano />,
-    tron: <Tron />,
-    network1: <Network1 />,
-    network2: <Network2 />,
-    network3: <Network3 />,
-  };
-
-  const images = Object.entries(chainGroupImages);
+  const images = Object.values(chainGroupImages);
 
   //refactor (too many responsabilities)
   function AddNetwork(key: string) {
@@ -73,10 +64,10 @@ export function SelectChain() {
               <input
                 id="myCheckbox"
                 type="checkbox"
-                onChange={() => AddNetwork(image[0])}
+                onChange={() => AddNetwork(image)}
               />
               <label htmlFor="myCheckbox">
-                <img src={image[1].type} />
+                <img src={image} />
               </label>
             </div>
           );
