@@ -1,33 +1,41 @@
-import { useFieldArray, UseFormReturn } from "react-hook-form";
+import { useFieldArray, useForm, UseFormReturn } from "react-hook-form";
 import { InputContainer } from "../styles";
 import { Button } from "../../Button";
-import {
-  emptyTokenDistribution,
-  TokenDistributionFormShape,
-} from "./tokenDistributionForm";
-import { useFormContext } from "../../../hooks/useFormContext";
+import { TokenDistributionFormShape } from "./schema";
+import { useStepContext } from "../../../context/StepContext";
+import { resolver } from "./schema";
 
-export interface Props {
-  form: UseFormReturn<TokenDistributionFormShape, any>;
-}
-
-export function CreateTokenDistribution({
-  form: {
-    handleSubmit,
+export function CreateTokenDistribution() {
+  const {
     control,
+    handleSubmit,
     register,
     formState: { errors },
-  },
-}: Props) {
+  } = useForm<TokenDistributionFormShape>({
+    mode: "onSubmit",
+    resolver,
+    defaultValues: {
+      tokenDistribution: [
+        {
+          name: "",
+          amount: 0,
+        },
+      ],
+    },
+  });
+
   const { fields, append } = useFieldArray({
     control,
     name: "tokenDistribution",
   });
 
-  const { handleNextStep, handleCreateToken } = useFormContext();
+  const { handleNextStep, handleCreateToken } = useStepContext();
 
   function AppendInputs() {
-    append(emptyTokenDistribution);
+    append({
+      name: "",
+      amount: 0,
+    });
   }
 
   function handleCreateTokenDistribution({ tokenDistribution }: any) {

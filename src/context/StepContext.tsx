@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { title } from "../components/Form/formBody";
 
 export interface Data {
@@ -11,7 +11,7 @@ export interface Data {
   chains: string[];
 }
 
-interface FormContextData {
+interface StepContextData {
   data: Data;
   currentStep: number;
   lastStep: number;
@@ -22,13 +22,13 @@ interface FormContextData {
   handleCreateToken: (key: string, value: string) => void;
 }
 
-interface FormContextProviderProps {
+interface StepContextProviderProps {
   children: React.ReactNode;
 }
 
-export const FormContext = createContext({} as FormContextData);
+const StepContext = createContext({} as StepContextData);
 
-export function FormContextProvider({ children }: FormContextProviderProps) {
+export function StepContextProvider({ children }: StepContextProviderProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -61,7 +61,7 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
   }
 
   return (
-    <FormContext.Provider
+    <StepContext.Provider
       value={{
         data,
         currentStep,
@@ -74,6 +74,10 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
       }}
     >
       {children}
-    </FormContext.Provider>
+    </StepContext.Provider>
   );
+}
+
+export function useStepContext() {
+  return useContext(StepContext);
 }

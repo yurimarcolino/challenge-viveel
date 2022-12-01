@@ -1,4 +1,4 @@
-import { useFormContext } from "../../hooks/useFormContext";
+import { useStepContext } from "../../context/StepContext";
 import { CustomStepper } from "../CustomStepper";
 import { FormStepps } from "../FormStepps";
 import { TokenResume } from "../FormStepps/TokenResume";
@@ -6,7 +6,7 @@ import { footerInstructions, title } from "./formBody";
 import { FormContainer, FormContent } from "./styles";
 
 export function Form() {
-  const { currentStep, hasFinished } = useFormContext();
+  const { currentStep, hasFinished } = useStepContext();
 
   return (
     <>

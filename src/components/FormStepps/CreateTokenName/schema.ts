@@ -1,4 +1,3 @@
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
 
@@ -19,16 +18,4 @@ const schema = zod.object({
   }),
 });
 
-export const emptyTokenName: TokenNameShape = {
-  name: "",
-};
-
-export function useTokenNameForm() {
-  return useForm<TokenNameFormShape>({
-    mode: "onSubmit",
-    resolver: zodResolver(schema),
-    defaultValues: {
-      tokenName: emptyTokenName,
-    },
-  });
-}
+export const resolver = zodResolver(schema);

@@ -1,4 +1,4 @@
-import { useFormContext } from "../../../hooks/useFormContext";
+import { useStepContext } from "../../../context/StepContext";
 import { ChainGroupContainer } from "./styles";
 import { useState } from "react";
 //refactor
@@ -19,7 +19,7 @@ export function SelectChain() {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState(false);
 
-  const { data, setData, setHasFinished } = useFormContext();
+  const { data, setData, setHasFinished } = useStepContext();
 
   const images = Object.values(chainGroupImages);
 

@@ -1,27 +1,19 @@
-import { useFormContext } from "../../hooks/useFormContext";
+import { useStepContext } from "../../context/StepContext";
 import { SelectChain } from "./SelectChain";
 
 import { CreateTokenSymbol } from "./CreateTokenSymbol";
 import { CreateTokenDistribution } from "./CreateTokenDistribution";
 import { CreateTokenName } from "./CreateTokenName";
 
-import { useTokenDistributionForm } from "./CreateTokenDistribution/tokenDistributionForm";
-import { useTokenNameForm } from "./CreateTokenName/tokenNameForm";
-import { useTokenSymbolForm } from "./CreateTokenSymbol/tokenSymbolForm";
+const steps: Record<number, JSX.Element> = {
+  0: <CreateTokenName />,
+  1: <CreateTokenSymbol />,
+  2: <CreateTokenDistribution />,
+  3: <SelectChain />,
+};
 
 export function FormStepps() {
-  const { currentStep } = useFormContext();
+  const { currentStep } = useStepContext();
 
-  const tokenDistribution = useTokenDistributionForm();
-  const tokenName = useTokenNameForm();
-  const tokenSymbol = useTokenSymbolForm();
-
-  const display: Record<number, JSX.Element> = {
-    0: <CreateTokenName form={tokenName} />,
-    1: <CreateTokenSymbol form={tokenSymbol} />,
-    2: <CreateTokenDistribution form={tokenDistribution} />,
-    3: <SelectChain />,
-  };
-
-  return <div>{display[currentStep]}</div>;
+  return <div>{steps[currentStep]}</div>;
 }

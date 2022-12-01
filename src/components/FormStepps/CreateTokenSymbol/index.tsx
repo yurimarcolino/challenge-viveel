@@ -1,20 +1,24 @@
-import { UseFormReturn } from "react-hook-form";
-import { useFormContext } from "../../../hooks/useFormContext";
+import { useForm, UseFormReturn } from "react-hook-form";
+import { useStepContext } from "../../../context/StepContext";
 import { InputContainer } from "../styles";
-import { TokenSymbolFormShape } from "./tokenSymbolForm";
+import { resolver, TokenSymbolFormShape } from "./schema";
 
-export interface Props {
-  form: UseFormReturn<TokenSymbolFormShape, any>;
-}
+export function CreateTokenSymbol() {
+  const { handleCreateToken, handleNextStep } = useStepContext();
 
-export function CreateTokenSymbol({
-  form: {
+  const {
     handleSubmit,
     register,
     formState: { errors },
-  },
-}: Props) {
-  const { handleCreateToken, handleNextStep } = useFormContext();
+  } = useForm<TokenSymbolFormShape>({
+    mode: "onSubmit",
+    resolver,
+    defaultValues: {
+      tokenSymbol: {
+        name: "",
+      },
+    },
+  });
 
   function handleCreateTokenName({ tokenSymbol }: TokenSymbolFormShape) {
     handleCreateToken("tokenSymbol", tokenSymbol.name);

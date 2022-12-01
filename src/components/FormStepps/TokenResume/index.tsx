@@ -1,9 +1,9 @@
-import { useFormContext } from "../../../hooks/useFormContext";
+import { useStepContext } from "../../../context/StepContext";
 import { TwoSimplePieChart } from "../../PieChart";
 import { TokenResumeContainer } from "./styles";
 
 export function TokenResume() {
-  const { data } = useFormContext();
+  const { data } = useStepContext();
 
   const total = data.tokenDistribution.reduce((acc, token) => {
     return acc + token.amount;

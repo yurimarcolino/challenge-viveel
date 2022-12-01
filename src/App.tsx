@@ -1,5 +1,5 @@
 import { Form } from "./components/Form";
-import { FormContextProvider } from "./context/FormContext";
+import { StepContextProvider } from "./context/StepContext";
 
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles/global";
@@ -8,10 +8,10 @@ import { defaultTheme } from "./styles/default";
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <FormContextProvider>
+      <StepContextProvider>
         <Form />
-        <GlobalStyle />
-      </FormContextProvider>
+      </StepContextProvider>
+      <GlobalStyle />
     </ThemeProvider>
   );
 }
