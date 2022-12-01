@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { title } from "../components/Form/formBody";
 
 export interface Data {
   tokenName: string;
@@ -14,7 +13,6 @@ export interface Data {
 interface StepContextData {
   data: Data;
   currentStep: number;
-  lastStep: number;
   hasFinished: boolean;
   setHasFinished: React.Dispatch<React.SetStateAction<boolean>>;
   setData: React.Dispatch<React.SetStateAction<Data>>;
@@ -45,12 +43,8 @@ export function StepContextProvider({ children }: StepContextProviderProps) {
     chains: [],
   });
 
-  const lastStep = Object.keys(title).length - 1;
-
   function handleNextStep() {
-    if (currentStep < lastStep) {
-      setCurrentStep((oldState) => oldState + 1);
-    }
+    setCurrentStep((oldState) => oldState + 1);
   }
 
   function handleCreateToken(key: any, value: any) {
@@ -66,7 +60,6 @@ export function StepContextProvider({ children }: StepContextProviderProps) {
         data,
         currentStep,
         hasFinished,
-        lastStep,
         setData,
         setHasFinished,
         handleNextStep,

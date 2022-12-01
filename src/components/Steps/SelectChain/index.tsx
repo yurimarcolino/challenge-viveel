@@ -1,6 +1,7 @@
 import { useStepContext } from "../../../context/StepContext";
 import { ChainGroupContainer } from "./styles";
 import { useState } from "react";
+import { HeaderStyled } from "../../StepTitle";
 //refactor
 
 export const chainGroupImages: Record<string, any> = {
@@ -57,6 +58,7 @@ export function SelectChain() {
 
   return (
     <>
+      <HeaderStyled>Select Chain</HeaderStyled>
       <ChainGroupContainer>
         {images.map((image, index) => {
           return (

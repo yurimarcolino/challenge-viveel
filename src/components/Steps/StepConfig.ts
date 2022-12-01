@@ -1,15 +1,5 @@
-type Title = {
-  [key: number]: string;
-};
 type FooterInstructions = {
   [key: number]: string;
-};
-
-export const title: Title = {
-  0: "Token Name",
-  1: "Token Symbol",
-  2: "Token Distribution",
-  3: "Select Chain",
 };
 
 export const footerInstructions: FooterInstructions = {
