@@ -20,15 +20,15 @@ import network2 from "../../../assets/network2.svg";
 import network3 from "../../../assets/ethereum.svg";
 
 export const chainGroupImages: Record<string, any> = {
-  ethereum: ethereum,
-  binance: binance,
-  polygon: polygon,
-  avalanche: avalanche,
-  cardano: cardano,
-  tron: tron,
-  network1: network1,
-  network2: network2,
-  network3: network3,
+  ethereum,
+  binance,
+  polygon,
+  avalanche,
+  cardano,
+  tron,
+  network1,
+  network2,
+  network3,
 };
 
 export function SelectChain() {
