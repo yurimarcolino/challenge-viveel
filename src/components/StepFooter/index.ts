@@ -7,5 +7,5 @@ export const StepFooterStyled = styled.footer`
 
   font-size: 0.875rem;
   color: ${(props) => props.theme["gray-500"]};
-  line-height: 20px;
+  line-height: 1.25rem;
 `;

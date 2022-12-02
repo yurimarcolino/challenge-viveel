@@ -59,7 +59,7 @@ export function TokenResume() {
           <p>Distribution:</p>
         </SpanContainerStyled>
         <LabelContainerStyled>
-          <div style={{ width: "400px", height: "400px" }}>
+          <div style={{ width: "25rem", height: "25rem" }}>
             <TwoSimplePieChart data={tokenDistributionPercentage} />
           </div>
         </LabelContainerStyled>
@@ -74,7 +74,10 @@ export function TokenResume() {
             {data.chains.map((chain, index) => {
               return (
                 <div key={index}>
-                  <img style={{ width: "50px", height: "50px" }} src={chain} />
+                  <img
+                    style={{ width: "3.125rem", height: "3.125rem" }}
+                    src={chain}
+                  />
                 </div>
               );
             })}

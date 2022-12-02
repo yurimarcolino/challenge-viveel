@@ -8,13 +8,13 @@ export const InputContainerStyled = styled.div`
     justify-content: center;
     font-weight: bold;
     font-size: 1.25rem;
-    line-height: 16px;
+    line-height: 1rem;
     padding: 0.6rem;
   }
 
   input {
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.3);
+    background: ${(props) => props.theme["gray-700"]};
     color: ${(props) => props.theme.white};
 
     height: 2.5rem;
@@ -23,7 +23,7 @@ export const InputContainerStyled = styled.div`
     max-width: 42.5rem;
 
     border-radius: 1.25rem;
-    border: 1px solid ${(props) => props.theme.white};
+    border: 0.0625rem solid ${(props) => props.theme.white};
   }
 
   input[type="number"]::-webkit-outer-spin-button,
@@ -82,22 +82,22 @@ export const ChainGroupContainerStyled = styled.div`
 
 export const ImageContainerStyled = styled.div`
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 6.25rem;
+  width: 6.25rem;
 
   input[type="checkbox"] {
     opacity: 0;
     position: absolute;
-    height: 80px;
-    width: 80px;
+    height: 5rem;
+    width: 5rem;
     float: left;
-    left: 10px;
-    top: 15px;
+    left: 0.625rem;
+    top: 0.9375rem;
     cursor: pointer;
   }
 
   input:checked + label {
-    border: 3px solid #1976d2;
+    border: 0.1875rem solid ${(props) => props.theme["blue-500"]};
     border-radius: 100%;
   }
 `;
@@ -157,7 +157,7 @@ export const LabelContainerStyled = styled.div`
   max-height: 13.125rem;
   width: 20.31rem;
 
-  background: rgba(255, 255, 255, 0.02);
+  background: ${(props) => props.theme["blue-800"]};
   border-radius: 1.5rem;
   margin-left: 1.875rem;
 
