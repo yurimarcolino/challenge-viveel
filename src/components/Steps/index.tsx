@@ -13,11 +13,7 @@ export function Steps() {
         <TokenResume />
       ) : (
         <StepContainerStyled>
-          <CustomStepper
-            steps={steps}
-            currentStep={currentStep}
-            style={{ width: "100%", padding: "5rem 0" }}
-          />
+          <CustomStepper steps={steps} currentStep={currentStep} />
 
           <StepContentStyled>
             <StepContent />
