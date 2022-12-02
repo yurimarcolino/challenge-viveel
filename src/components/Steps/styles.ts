@@ -39,13 +39,13 @@ export const InputContainer = styled.div`
   }
 `;
 
-export const FormContainer = styled.div`
+export const StepContainerStyled = styled.div`
   margin: 14.187rem auto;
   padding: 2rem;
   max-width: 42.5rem;
 `;
 
-export const FormContent = styled.div`
+export const StepContentStyled = styled.div`
   .ButtonContainer {
     display: flex;
     justify-content: flex-end;
@@ -61,17 +61,6 @@ export const FormContent = styled.div`
       &:hover {
         opacity: 0.7;
       }
-    }
-  }
-  .FooterContainer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-
-    footer {
-      font-size: 0.875rem;
-      color: ${(props) => props.theme["gray-500"]};
-      line-height: 20px;
     }
   }
 `;

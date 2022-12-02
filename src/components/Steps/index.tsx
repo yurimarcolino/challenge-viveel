@@ -2,8 +2,7 @@ import { useStepContext } from "../../context/StepContext";
 import { CustomStepper } from "../CustomStepper";
 import { StepContent, steps } from "./StepContent";
 import { TokenResume } from "../Steps/TokenResume";
-import { footerInstructions } from "./StepConfig";
-import { FormContainer, FormContent } from "./styles";
+import { StepContainerStyled, StepContentStyled } from "./styles";
 
 export function Steps() {
   const { currentStep, hasFinished } = useStepContext();
@@ -13,21 +12,17 @@ export function Steps() {
       {hasFinished ? (
         <TokenResume />
       ) : (
-        <FormContainer>
+        <StepContainerStyled>
           <CustomStepper
             steps={steps}
             currentStep={currentStep}
             style={{ width: "100%", padding: "5rem 0" }}
           />
 
-          <FormContent>
+          <StepContentStyled>
             <StepContent />
-
-            <div className="FooterContainer">
-              <footer>{footerInstructions[currentStep]}</footer>
-            </div>
-          </FormContent>
-        </FormContainer>
+          </StepContentStyled>
+        </StepContainerStyled>
       )}
     </>
   );

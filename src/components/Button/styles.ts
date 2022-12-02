@@ -7,7 +7,7 @@ export const ButtonContainer = styled.div`
     align-items: center;
 
     padding: 1rem;
-    margin-bottom: 2.5rem;
+    margin: 2.5rem 0 1.875rem 0;
     background: rgba(255, 255, 255, 0.02);
 
     height: 2.25rem;

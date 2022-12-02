@@ -5,6 +5,7 @@ import { TokenDistributionFormShape } from "./schema";
 import { useStepContext } from "../../../context/StepContext";
 import { resolver } from "./schema";
 import { HeaderStyled } from "../../StepTitle";
+import { StepFooterStyled } from "../../StepFooter";
 
 export function CreateTokenDistribution() {
   const {
@@ -86,6 +87,12 @@ export function CreateTokenDistribution() {
           <button type="submit">Next {">"}</button>
         </div>
       </form>
+      <StepFooterStyled>
+        Token distribution relates to how you share your assets between
+        different players, such as your developmen team, marketing and
+        community. In this slide you must add as much players as you like and
+        the amount of tokens each one is entiteled with.
+      </StepFooterStyled>
     </>
   );
 }

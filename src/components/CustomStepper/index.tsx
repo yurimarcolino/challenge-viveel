@@ -1,23 +1,27 @@
-import { Step, StepLabel, Stepper } from "@mui/material";
+import React from "react";
+import {
+  StepperStyled,
+  StepStyled,
+  StepLabelStyled,
+  StepDividerStyled,
+} from "./styles";
 
 interface CustomStepperProps {
   currentStep: number;
-  style: {};
   steps: Record<number, JSX.Element>;
 }
 
-export function CustomStepper({
-  currentStep,
-  steps,
-  ...args
-}: CustomStepperProps) {
+export function CustomStepper({ currentStep, steps }: CustomStepperProps) {
   return (
-    <Stepper activeStep={currentStep} alternativeLabel {...args}>
+    <StepperStyled>
       {Object.keys(steps).map((step, index) => (
-        <Step key={index}>
-          <StepLabel />
-        </Step>
+        <React.Fragment key={index}>
+          <StepStyled aria-current={currentStep === index}>
+            <StepLabelStyled>{index}</StepLabelStyled>
+          </StepStyled>
+          <StepDividerStyled />
+        </React.Fragment>
       ))}
-    </Stepper>
+    </StepperStyled>
   );
 }

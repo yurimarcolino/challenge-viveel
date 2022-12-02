@@ -1,5 +1,6 @@
 import { useForm, UseFormReturn } from "react-hook-form";
 import { useStepContext } from "../../../context/StepContext";
+import { StepFooterStyled } from "../../StepFooter";
 import { HeaderStyled } from "../../StepTitle";
 import { InputContainer } from "../styles";
 import { resolver, TokenSymbolFormShape } from "./schema";
@@ -40,6 +41,10 @@ export function CreateTokenSymbol() {
           <button type="submit">Next {">"}</button>
         </div>
       </form>
+      <StepFooterStyled>
+        The token Symbol is a short name to your asset, usually it is about 3 to
+        5 capital letters, as USD stands for US Dollar
+      </StepFooterStyled>
     </>
   );
 }

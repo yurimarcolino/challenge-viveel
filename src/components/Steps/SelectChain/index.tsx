@@ -2,6 +2,7 @@ import { useStepContext } from "../../../context/StepContext";
 import { ChainGroupContainer } from "./styles";
 import { useState } from "react";
 import { HeaderStyled } from "../../StepTitle";
+import { StepFooterStyled } from "../../StepFooter";
 //refactor
 
 export const chainGroupImages: Record<string, any> = {
@@ -86,6 +87,11 @@ export function SelectChain() {
           Next {">"}
         </button>
       </div>
+
+      <StepFooterStyled>
+        Now it is time to select which Blockchain you want to use. Select as
+        many as you want.
+      </StepFooterStyled>
     </>
   );
 }

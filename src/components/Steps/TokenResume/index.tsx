@@ -1,5 +1,6 @@
 import { useStepContext } from "../../../context/StepContext";
 import { TwoSimplePieChart } from "../../PieChart";
+import { StepFooterStyled } from "../../StepFooter";
 import { HeaderStyled } from "../../StepTitle";
 import { TokenResumeContainer } from "./styles";
 
@@ -86,6 +87,10 @@ export function TokenResume() {
             Build {">"}
           </button>
         </div>
+        <StepFooterStyled>
+          Now it is time to select which Blockchain you want to use. Select as
+          many as you want.
+        </StepFooterStyled>
       </TokenResumeContainer>
     </>
   );

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useStepContext } from "../../../context/StepContext";
+import { StepFooterStyled } from "../../StepFooter";
 import { HeaderStyled } from "../../StepTitle";
 import { InputContainer } from "../styles";
 import { resolver, TokenNameFormShape } from "./schema";
@@ -29,6 +30,7 @@ export function CreateTokenName() {
   return (
     <>
       <HeaderStyled>Token Name</HeaderStyled>
+
       <form onSubmit={handleSubmit(handleCreateTokenName)}>
         <InputContainer>
           <input {...register("tokenName.name", { required: true })} />
@@ -36,10 +38,15 @@ export function CreateTokenName() {
             <p>{errors.tokenName?.name?.message}</p>
           )}
         </InputContainer>
+
         <div className="ButtonContainer">
           <button type="submit">Next {">"}</button>
         </div>
       </form>
+
+      <StepFooterStyled>
+        The token name represents how your is going to be known
+      </StepFooterStyled>
     </>
   );
 }
