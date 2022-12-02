@@ -2,7 +2,7 @@ import { useStepContext } from "../../context/StepContext";
 import { CustomStepper } from "../CustomStepper";
 import { StepContent, steps } from "./StepContent";
 import { TokenResume } from "../Steps/TokenResume";
-import { StepContainerStyled, StepContentStyled } from "./styles";
+import { StepContainerStyled } from "./styles";
 
 export function Steps() {
   const { currentStep, hasFinished } = useStepContext();
@@ -15,9 +15,7 @@ export function Steps() {
         <StepContainerStyled>
           <CustomStepper steps={steps} currentStep={currentStep} />
 
-          <StepContentStyled>
-            <StepContent />
-          </StepContentStyled>
+          <StepContent />
         </StepContainerStyled>
       )}
     </>

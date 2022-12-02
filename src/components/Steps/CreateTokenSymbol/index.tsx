@@ -2,7 +2,11 @@ import { useForm, UseFormReturn } from "react-hook-form";
 import { useStepContext } from "../../../context/StepContext";
 import { StepFooterStyled } from "../../StepFooter";
 import { HeaderStyled } from "../../StepTitle";
-import { InputContainer } from "../styles";
+import {
+  ButtonContainerStyled,
+  ErrorStyled,
+  InputContainerStyled,
+} from "../styles";
 import { resolver, TokenSymbolFormShape } from "./schema";
 
 export function CreateTokenSymbol() {
@@ -31,15 +35,15 @@ export function CreateTokenSymbol() {
     <>
       <HeaderStyled>Token Symbol</HeaderStyled>
       <form onSubmit={handleSubmit(handleCreateTokenName)}>
-        <InputContainer>
+        <InputContainerStyled>
           <input {...register("tokenSymbol.name", { required: true })} />
           {errors.tokenSymbol?.name?.message && (
-            <p>{errors.tokenSymbol?.name?.message}</p>
+            <ErrorStyled>{errors.tokenSymbol?.name?.message}</ErrorStyled>
           )}
-        </InputContainer>
-        <div className="ButtonContainer">
+        </InputContainerStyled>
+        <ButtonContainerStyled>
           <button type="submit">Next {">"}</button>
-        </div>
+        </ButtonContainerStyled>
       </form>
       <StepFooterStyled>
         The token Symbol is a short name to your asset, usually it is about 3 to

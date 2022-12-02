@@ -1,5 +1,10 @@
-import { useFieldArray, useForm, UseFormReturn } from "react-hook-form";
-import { InputContainer } from "../styles";
+import { useFieldArray, useForm } from "react-hook-form";
+import {
+  ButtonContainerStyled,
+  ErrorStyled,
+  FormContainerStyled,
+  InputContainerStyled,
+} from "../styles";
 import { Button } from "../../Button";
 import { TokenDistributionFormShape } from "./schema";
 import { useStepContext } from "../../../context/StepContext";
@@ -51,23 +56,18 @@ export function CreateTokenDistribution() {
       <form onSubmit={handleSubmit(handleCreateTokenDistribution)}>
         {fields.map((field, index) => {
           return (
-            <div
-              style={{
-                display: "flex",
-                gap: "2rem",
-                flexFlow: "nowrap",
-              }}
-              key={field.id}
-            >
-              <InputContainer>
+            <FormContainerStyled key={field.id}>
+              <InputContainerStyled>
                 <span>Name</span>
                 <input {...register(`tokenDistribution.${index}.name`, {})} />
                 {errors.tokenDistribution?.[index]?.name?.message && (
-                  <p>{errors.tokenDistribution?.[index]?.name?.message}</p>
+                  <ErrorStyled>
+                    {errors.tokenDistribution?.[index]?.name?.message}
+                  </ErrorStyled>
                 )}
-              </InputContainer>
+              </InputContainerStyled>
 
-              <InputContainer>
+              <InputContainerStyled>
                 <span>Amount</span>
                 <input
                   type="number"
@@ -76,16 +76,18 @@ export function CreateTokenDistribution() {
                   })}
                 />
                 {errors.tokenDistribution?.[index]?.amount?.message && (
-                  <p>{errors.tokenDistribution?.[index]?.amount?.message}</p>
+                  <ErrorStyled>
+                    {errors.tokenDistribution?.[index]?.amount?.message}
+                  </ErrorStyled>
                 )}
-              </InputContainer>
-            </div>
+              </InputContainerStyled>
+            </FormContainerStyled>
           );
         })}
         <Button onClick={AppendInputs} />
-        <div className="ButtonContainer">
+        <ButtonContainerStyled>
           <button type="submit">Next {">"}</button>
-        </div>
+        </ButtonContainerStyled>
       </form>
       <StepFooterStyled>
         Token distribution relates to how you share your assets between

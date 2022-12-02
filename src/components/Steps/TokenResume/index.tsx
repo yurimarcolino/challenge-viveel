@@ -1,8 +1,13 @@
 import { useStepContext } from "../../../context/StepContext";
 import { TwoSimplePieChart } from "../../PieChart";
-import { StepFooterStyled } from "../../StepFooter";
 import { HeaderStyled } from "../../StepTitle";
-import { TokenResumeContainer } from "./styles";
+import {
+  BodyContainerStyled,
+  ButtonContainerStyled,
+  LabelContainerStyled,
+  SpanContainerStyled,
+} from "../styles";
+import { TokenResumeContainerStyled } from "../styles";
 
 export function TokenResume() {
   const { data } = useStepContext();
@@ -19,79 +24,73 @@ export function TokenResume() {
   });
 
   return (
-    <>
-      <TokenResumeContainer>
-        <HeaderStyled>Token Resume</HeaderStyled>
-        <div className="BodyContainer">
-          <div className="SpanContainer">
-            <p>Template:</p>
-          </div>
-          <div className="LabelContainer">
-            <label />
-          </div>
-        </div>
-        <div className="BodyContainer">
-          <div className="SpanContainer">
-            <p>Name:</p>
-          </div>
-          <div className="LabelContainer">
-            <label>{data.tokenName}</label>
-          </div>
-        </div>
-        <div className="BodyContainer">
-          <div className="SpanContainer">
-            <p>Symbol:</p>
-          </div>
-          <div className="LabelContainer">
-            <label>{data.tokenSymbol}</label>
-          </div>
-        </div>
+    <TokenResumeContainerStyled>
+      <HeaderStyled>Token Resume</HeaderStyled>
 
-        <div className="BodyContainer">
-          <div className="SpanContainer">
-            <p>Distribution:</p>
-          </div>
-          <div className="LabelContainer">
-            <div style={{ width: "400px", height: "400px" }}>
-              <TwoSimplePieChart data={tokenDistributionPercentage} />
-            </div>
-          </div>
-        </div>
+      <BodyContainerStyled>
+        <SpanContainerStyled>
+          <p>Template:</p>
+        </SpanContainerStyled>
+        <LabelContainerStyled>
+          <label />
+        </LabelContainerStyled>
+      </BodyContainerStyled>
 
-        <div className="BodyContainer">
-          <div className="SpanContainer">
-            <p>BlockChains:</p>
-          </div>
-          <div className="LabelContainer">
-            <label>
-              {data.chains.map((chain, index) => {
-                return (
-                  <div key={index}>
-                    <img
-                      style={{ width: "50px", height: "50px" }}
-                      src={chain}
-                    />
-                  </div>
-                );
-              })}
-            </label>
-          </div>
-        </div>
+      <BodyContainerStyled>
+        <SpanContainerStyled>
+          <p>Template:</p>
+        </SpanContainerStyled>
+        <LabelContainerStyled>
+          <label>{data.tokenName}</label>
+        </LabelContainerStyled>
+      </BodyContainerStyled>
 
-        <div className="BuildButton">
-          <button
-            onClick={() =>
-              alert("🎉🎉CONGRATS, THE TOKEN WAS BUILT successfully🎉🎉")
-            }
-          >
-            Build {">"}
-          </button>
-        </div>
-        <StepFooterStyled>
-          Now it is time to select which Blockchain you want to use. Select as
-          many as you want.
-        </StepFooterStyled>
-      </TokenResumeContainer>
-    </>
+      <BodyContainerStyled>
+        <SpanContainerStyled>
+          <p>Template:</p>
+        </SpanContainerStyled>
+        <LabelContainerStyled>
+          <label>{data.tokenSymbol}</label>
+        </LabelContainerStyled>
+      </BodyContainerStyled>
+
+      <BodyContainerStyled>
+        <SpanContainerStyled>
+          <p>Distribution:</p>
+        </SpanContainerStyled>
+        <LabelContainerStyled>
+          <div style={{ width: "400px", height: "400px" }}>
+            <TwoSimplePieChart data={tokenDistributionPercentage} />
+          </div>
+        </LabelContainerStyled>
+      </BodyContainerStyled>
+
+      <BodyContainerStyled>
+        <SpanContainerStyled>
+          <p>BlockChains:</p>
+        </SpanContainerStyled>
+        <LabelContainerStyled>
+          <label>
+            {data.chains.map((chain, index) => {
+              return (
+                <div key={index}>
+                  <img style={{ width: "50px", height: "50px" }} src={chain} />
+                </div>
+              );
+            })}
+          </label>
+        </LabelContainerStyled>
+      </BodyContainerStyled>
+
+      <ButtonContainerStyled>
+        <button
+          onClick={() =>
+            alert("🎉🎉CONGRATS, THE TOKEN WAS BUILT successfully🎉🎉")
+          }
+        >
+          Build {">"}
+        </button>
+      </ButtonContainerStyled>
+    </TokenResumeContainerStyled>
   );
 }

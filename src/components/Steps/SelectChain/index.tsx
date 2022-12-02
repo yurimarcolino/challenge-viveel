@@ -1,8 +1,13 @@
 import { useStepContext } from "../../../context/StepContext";
-import { ChainGroupContainer } from "./styles";
 import { HeaderStyled } from "../../StepTitle";
 import { StepFooterStyled } from "../../StepFooter";
 import { useAddNetwork } from "../../../hooks/AddNetwork";
+import {
+  ButtonContainerStyled,
+  ChainGroupContainerStyled,
+  ErrorStyled,
+  ImageContainerStyled,
+} from "../styles";
 
 export const chainGroupImages: Record<string, any> = {
   ethereum: "/src/assets/ethereum.svg",
@@ -19,7 +24,7 @@ export const chainGroupImages: Record<string, any> = {
 export function SelectChain() {
   const { AddNetwork, error, setError } = useAddNetwork();
 
-  const { data, setData, setHasFinished } = useStepContext();
+  const { data, setHasFinished } = useStepContext();
 
   const images = Object.values(chainGroupImages);
 
@@ -34,33 +39,29 @@ export function SelectChain() {
   return (
     <>
       <HeaderStyled>Select Chain</HeaderStyled>
-      <ChainGroupContainer>
+      <ChainGroupContainerStyled>
         {images.map((image, index) => {
           return (
-            <div className="ImageContainer" key={index}>
+            <ImageContainerStyled key={index}>
               <input
-                id="myCheckbox"
+                id="imageCheckbox"
                 type="checkbox"
                 onChange={() => AddNetwork(image)}
               />
-              <label htmlFor="myCheckbox">
+              <label htmlFor="imageCheckbox">
                 <img src={image} />
               </label>
-            </div>
+            </ImageContainerStyled>
           );
         })}
-      </ChainGroupContainer>
-      {error && (
-        <p style={{ color: "red", fontSize: "0.65rem", margin: "1rem" }}>
-          You must select at least one network
-        </p>
-      )}
+      </ChainGroupContainerStyled>
+      {error && <ErrorStyled>You must select at least one network</ErrorStyled>}
 
-      <div className="ButtonContainer">
+      <ButtonContainerStyled>
         <button type="button" onClick={handleNextButtonClick}>
           Next {">"}
         </button>
-      </div>
+      </ButtonContainerStyled>
 
       <StepFooterStyled>
         Now it is time to select which Blockchain you want to use. Select as
