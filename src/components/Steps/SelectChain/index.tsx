@@ -9,16 +9,26 @@ import {
   ImageContainerStyled,
 } from "../styles";
 
+import ethereum from "../../../assets/ethereum.svg";
+import binance from "../../../assets/binance.svg";
+import polygon from "../../../assets/polygon.svg";
+import avalanche from "../../../assets/avalanche.svg";
+import cardano from "../../../assets/cardano.svg";
+import tron from "../../../assets/tron.svg";
+import network1 from "../../../assets/network1.svg";
+import network2 from "../../../assets/network2.svg";
+import network3 from "../../../assets/ethereum.svg";
+
 export const chainGroupImages: Record<string, any> = {
-  ethereum: "/src/assets/ethereum.svg",
-  binance: "/src/assets/binance.svg",
-  polygon: "/src/assets/polygon.svg",
-  avalanche: "/src/assets/avalanche.svg",
-  cardano: "/src/assets/cardano.svg",
-  tron: "/src/assets/tron.svg",
-  network1: "/src/assets/network1.svg",
-  network2: "/src/assets/network2.svg",
-  network3: "/src/assets/network3.svg",
+  ethereum: ethereum,
+  binance: binance,
+  polygon: polygon,
+  avalanche: avalanche,
+  cardano: cardano,
+  tron: tron,
+  network1: network1,
+  network2: network2,
+  network3: network3,
 };
 
 export function SelectChain() {
