@@ -13,7 +13,7 @@ export interface TokenDistributionFormShape {
 const schema = zod.object({
   tokenDistribution: zod.array(
     zod.object({
-      name: zod.string().min(3, { message: "Name required" }),
+      name: zod.string().min(1, { message: "Name required" }),
       amount: zod.number().min(1, { message: "Amount required" }),
     })
   ),
