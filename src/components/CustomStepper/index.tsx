@@ -17,7 +17,7 @@ export function CustomStepper({ currentStep, steps }: CustomStepperProps) {
       {Object.keys(steps).map((step, index) => (
         <React.Fragment key={index}>
           <StepStyled aria-current={currentStep === index}>
-            <StepLabelStyled>{index}</StepLabelStyled>
+            <StepLabelStyled>{index + 1}</StepLabelStyled>
           </StepStyled>
           <StepDividerStyled />
         </React.Fragment>
