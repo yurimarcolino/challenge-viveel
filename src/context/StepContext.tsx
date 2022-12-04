@@ -10,7 +10,7 @@ export interface Data {
   chains: string[];
 }
 
-interface StepContextData {
+export interface StepContextData {
   data: Data;
   currentStep: number;
   hasFinished: boolean;
@@ -24,7 +24,7 @@ interface StepContextProviderProps {
   children: React.ReactNode;
 }
 
-const StepContext = createContext({} as StepContextData);
+export const StepContext = createContext({} as StepContextData);
 
 export function StepContextProvider({ children }: StepContextProviderProps) {
   const [currentStep, setCurrentStep] = useState(0);

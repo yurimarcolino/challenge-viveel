@@ -39,7 +39,7 @@ export function SelectChain() {
   const images = Object.values(chainGroupImages);
 
   function handleNextButtonClick() {
-    if (data.chains.length === 0) {
+    if (data?.chains.length === 0) {
       setError(true);
     } else {
       setHasFinished(true);
@@ -58,14 +58,18 @@ export function SelectChain() {
                 type="checkbox"
                 onChange={() => AddNetwork(image)}
               />
-              <label htmlFor="imageCheckbox">
+              <label htmlFor="imageCheckbox" data-testid="blockchain-image">
                 <img src={image} />
               </label>
             </ImageContainerStyled>
           );
         })}
       </ChainGroupContainerStyled>
-      {error && <ErrorStyled>You must select at least one network</ErrorStyled>}
+      {error && (
+        <ErrorStyled data-testid="error-message">
+          You must select at least one network
+        </ErrorStyled>
+      )}
 
       <ButtonContainerStyled>
         <button type="button" onClick={handleNextButtonClick}>

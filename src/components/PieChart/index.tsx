@@ -1,4 +1,4 @@
-import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 
 type PropsData = {
   name: string;

@@ -138,7 +138,7 @@ export const SpanContainerStyled = styled.div`
   gap: 1.875rem;
   justify-content: flex-end;
 
-  p {
+  span {
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 1.5rem;

@@ -11,7 +11,7 @@ import { TokenResumeContainerStyled } from "../styles";
 
 export function TokenResume() {
   const { data } = useStepContext();
-
+  console.log({ data });
   const total = data.tokenDistribution.reduce((acc, token) => {
     return acc + token.amount;
   }, 0);
@@ -29,37 +29,40 @@ export function TokenResume() {
 
       <BodyContainerStyled>
         <SpanContainerStyled>
-          <p>Template:</p>
+          <span>Template:</span>
         </SpanContainerStyled>
         <LabelContainerStyled>
-          <label />
+          <label data-testid="template-field" />
         </LabelContainerStyled>
       </BodyContainerStyled>
 
       <BodyContainerStyled>
         <SpanContainerStyled>
-          <p>Template:</p>
+          <span>Name:</span>
         </SpanContainerStyled>
         <LabelContainerStyled>
-          <label>{data.tokenName}</label>
+          <label data-testid="token-name-field">{data.tokenName}</label>
         </LabelContainerStyled>
       </BodyContainerStyled>
 
       <BodyContainerStyled>
         <SpanContainerStyled>
-          <p>Template:</p>
+          <span>Symbol:</span>
         </SpanContainerStyled>
         <LabelContainerStyled>
-          <label>{data.tokenSymbol}</label>
+          <label data-testid="token-symbol-field">{data.tokenSymbol}</label>
         </LabelContainerStyled>
       </BodyContainerStyled>
 
       <BodyContainerStyled>
         <SpanContainerStyled>
-          <p>Distribution:</p>
+          <span>Distribution:</span>
         </SpanContainerStyled>
         <LabelContainerStyled>
-          <div style={{ width: "25rem", height: "25rem" }}>
+          <div
+            style={{ width: "25rem", height: "25rem" }}
+            data-testid="piechart"
+          >
             <TwoSimplePieChart data={tokenDistributionPercentage} />
           </div>
         </LabelContainerStyled>
@@ -67,7 +70,7 @@ export function TokenResume() {
 
       <BodyContainerStyled>
         <SpanContainerStyled>
-          <p>BlockChains:</p>
+          <span>BlockChains:</span>
         </SpanContainerStyled>
         <LabelContainerStyled>
           <label>
@@ -75,6 +78,7 @@ export function TokenResume() {
               return (
                 <div key={index}>
                   <img
+                    data-testid="blockchain-field"
                     style={{ width: "3.125rem", height: "3.125rem" }}
                     src={chain}
                   />

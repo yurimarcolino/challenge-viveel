@@ -39,6 +39,7 @@ export function CreateTokenDistribution() {
   const { handleNextStep, handleCreateToken } = useStepContext();
 
   function AppendInputs() {
+    console.log("teste");
     append({
       name: "",
       amount: 0,
@@ -68,7 +69,7 @@ export function CreateTokenDistribution() {
               </InputContainerStyled>
 
               <InputContainerStyled>
-                <span>Amount</span>
+                <span data-testid="amount-label">Amount</span>
                 <input
                   type="number"
                   {...register(`tokenDistribution.${index}.amount`, {
