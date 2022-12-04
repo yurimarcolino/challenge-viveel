@@ -22,6 +22,8 @@ npm install && npm start
 - React-hook-form
 - Recharts
 - Zod
+- Jest
+- React Testing Library
 
 ### Assumptions
 
@@ -59,12 +61,5 @@ This is the resume and the user can see the details that belong to the previous 
 
 ## TODO
 
-[ x ] separate components (FormContainer)
-[ x ] create Form global state
-[ x ] validate fields
-[ x ] tokenDistribution ADD Button.
-[ x ] selectChain logic and layout
-
 [ ] layout
-[ ] tokenResume
-[ ] unit and integration tests(styled-components)
+
