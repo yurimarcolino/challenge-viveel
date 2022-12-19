@@ -1,6 +1,6 @@
 # challenge-viveel
 
-### Check the app on production here: https://challenge-viveel-d8kndhtep-yurimarcolino.vercel.app/
+### Check out the application in production here: https://challenge-viveel-d8kndhtep-yurimarcolino.vercel.app/
 
 ## How to run this project
 
